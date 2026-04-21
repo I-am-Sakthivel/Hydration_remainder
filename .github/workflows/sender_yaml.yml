@@ -1,5 +1,8 @@
 name: "Sender"
 
+permissions:
+  contents: write
+
 on:
   schedule:
     - cron: '0 * * * *'
@@ -7,10 +10,6 @@ on:
 env:
   my_email: ${{ secrets.my_email }}
   password: ${{ secrets.password }}
-
-permissions:
-  contents: write
-  pull-requests: write 
 
 jobs:
   send:
