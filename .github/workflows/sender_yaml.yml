@@ -31,3 +31,14 @@ jobs:
       - name: Run the script
         run: |
           python3 mail.py
+      - name: Configure Git User (23f2000237@ds.study.iitm.ac.in)
+        run: |
+          git config --global user.name "I-am-Sakthivel"
+          git config --global user.email "sakthivel900@icloud.com"
+
+      - name: Make Changes and Commit
+        run: |
+          echo "$(date)" >> daily-log.txt
+          git add daily-log.txt
+          git commit -m "Automated commit on $(date)"
+          git push
