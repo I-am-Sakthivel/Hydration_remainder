@@ -3,7 +3,7 @@ name: "Sender"
 on:
   schedule:
     - cron: '0 * * * *'
-
+  workflow_dispatch:
 env:
   my_email: ${{ secrets.my_email }}
   password: ${{ secrets.password }}
