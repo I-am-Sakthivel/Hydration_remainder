@@ -1,0 +1,28 @@
+name: "Sender"
+
+on:
+  schedule:
+    - cron: '0 * * * *'
+  
+env:
+  my_email: {{ secrets.my_email }}
+  password: {{ secrets. password }}
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    permissions: 
+      issues: write
+      contents: read
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Install dependencies like dotenv 
+        run: |
+          pip install python-dotenv
+      
+      - name: Run the script
+        run: |
+          python3 mail.py
+      
